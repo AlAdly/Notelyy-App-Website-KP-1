@@ -1,0 +1,121 @@
+<!-- index.ejs -->
+<div style="padding-top: 30px;">
+  
+  <form class="nav col-10 col-md-auto flex-fill mb-5 justify-content-center search-form" role="search" method="POST" style="margin-right: 30px;margin-left: 100px; margin-bottom: 30px;" action="/dashboard/search">
+    <div class="input-group">
+      <input type="search" name="searchTerm" class="form-control border-primary search-input" placeholder="Search..." aria-label="Search">
+      <div class="input-group-append">
+        <span class="input-group-text"><i class="fas fa-search"></i></span> <!-- Ikon Search dari Font Awesome -->
+      </div>
+    </div>
+  </form>
+  
+ 
+ 
+ 
+  
+  <div class="container-fluid container-fluid-custom pb-5 ">
+    <div class="row ">
+  
+      <div class="col" style="margin-left: 90px">
+        <h1>Hai, <%= userName %> !</h1>
+      </div>
+      <div class="col text-end">
+        <a href="/dashboard/add" class="btn btn-primary btn-new-note">
+          <i class="fas fa-plus"></i> <!-- Ikon "+" dari Font Awesome -->
+      </a>
+      
+      <div class="btn-group mb-0 mt-4 text-end" role="group" id="filterGroup">
+        <div class="btn-group" role="group">
+          <a href="/dashboard?filterDate=latest" class="btn btn-primary filter-btn">Latest Created</a>
+        </div>
+      
+        <div class="btn-group" role="group" style="margin-left: 10px;">
+          <button id="alphabetDropdown" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Alphabet
+          </button>
+          <div class="dropdown-menu alphabet-dropdown" aria-labelledby="alphabetDropdown">
+            <a class="dropdown-item" href="/dashboard">All</a>
+            <% for (let i = 65; i <= 90; i++) { %>
+              <a class="dropdown-item" href="/dashboard?filterAlphabet=<%= String.fromCharCode(i) %>">
+                <%= String.fromCharCode(i) %>
+              </a>
+            <% } %>
+            <a class="dropdown-item" href="/dashboard?filterAlphabet=alphabetical">Alphabetical</a>
+          </div>
+        </div>
+      </div>
+      
+  
+    </div>
+  </div>
+  
+  
+  
+  
+  
+    <!-- ... -->
+  </div>
+  
+  
+  <div class="row" style="margin-left: 80px">
+    <div class="row">
+      <% if (notes.length > 0) {
+        for (var i = 0; i < notes.length; i++) { %>
+          <div class="col-md-4 mb-4">
+            <div class="card border-primary note-card" style="min-height: 210px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <a href="/dashboard/item/<%= notes[i]._id %>" class="card-body text-decoration-none">
+                <h5 class="card-title"><%= notes[i].title %></h5>
+                <p class="card-text"><%= notes[i].body %></p>
+                <p class="card-text" id="date"><strong><%= notes[i].formattedDate %></strong></p>
+              </a>
+            </div>
+          </div>
+      <% }} else { %>
+          <div class="col mt-md-4">
+            <h2>Okay...</h2>
+            <h4>Let's start with your first note!<br/><br/>
+              <a href="/dashboard/add">Create one!</a>
+            </h4>
+          </div>
+        <% } %>
+      </div>
+  
+  
+    <!-- <% if(notes.length > 0) { %>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center mt-5">
+          <% if(current == 1) { %>
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <% } else { %>
+            <li class="page-item"><a class="page-link" href="/dashboard">First</a></li>
+          <% }  %>
+          <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+          <% if (i !== 1 ) { %>
+            <li class="page-item"><a class="page-link" href="#">...</a></li>
+          <% } %>
+          <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+            <% if(i == current ) { %>
+              <li class="page-item"><a class="page-link" href="#"><%= i %></a></li>
+            <% } else { %>
+              <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
+            <% } %>
+            <% if(i == Number(current) + 4 && i < pages) { %>
+              <li class="page-item"><a class="page-link" href="#">...</a></li>
+            <% } %>
+          <% } %>
+          <% if (current == pages) { %>
+              <li class="page-item disabled"><a class="page-link">Last</a></li>
+          <% } else { %>
+              <li class="page-item"><a href="/dashboard/?page=<%= pages %>" class="page-link">Last</a></li>
+          <% } %>
+        </ul>
+      </nav>
+  
+    <% } %> -->
+  
+  </div>
+  
+  
+  
+</div>

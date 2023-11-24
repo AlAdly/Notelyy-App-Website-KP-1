@@ -1,0 +1,30 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+  <a href="/dashboard">
+    <i class="fas fa-arrow-circle-left fs-2" id="iconside" style="margin-top: 20px;margin-left: 90px;margin-right: 13px;margin-bottom: 20px;color: #a2beb8;"></i>
+  </a>
+  <div class="row mb-4" style="margin-left: 80px">
+    <div class="col">
+      
+      <div class="col d-flex justify-content-between align-items-center">
+        <h1 class="h3"style="font-weight: bold;">Add Note</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <form action="/dashboard/add" method="POST" class="position-absolute" style="margin-left: 80px;width: 78rem;">
+    <div class="form-group mb-4 position-absolute" style="left:1px; top:1px; right: 1px;">
+      <input type="text" class="form-control fw-bold border-0 fs-4" id="title" name="title" placeholder="Title" required>
+    </div>
+
+    <div class="form-group mb-4">
+      <textarea required class="form-control pt-5 fs-4" id="body" name="body" placeholder="Take a note..." rows="12"></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg" >+ Add Note</button>
+    </div>
+
+  </form>
+
+</div>

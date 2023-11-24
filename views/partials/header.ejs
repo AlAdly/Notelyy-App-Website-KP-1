@@ -1,0 +1,32 @@
+<header>
+    <nav class="navbar">
+      <a href="/" id="p" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-decoration-none fw-bold fs-3">Notely App</a>
+      <ul class="nav-menu ">
+          <li class="nav-item"><a href="#home" class="nav-link ">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link ">About</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <a href="/auth/google"><button type="button" class="btn btn-success">Sign</button></a>
+          
+            
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const nav_menu = document.querySelector(".nav-menu");
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    nav_menu.classList.toggle("active");
+  });
+  document.querySelectorAll(".nav-link").forEach((n) =>
+    n.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      nav_menu.classList.remove("active");
+    })
+  );
+</script>

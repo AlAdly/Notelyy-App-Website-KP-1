@@ -1,0 +1,432 @@
+:root {
+    --bs-primary-rgb: #023f32;
+    --background-color: rgb(255, 240, 220) ;
+  }
+
+
+  /* Untuk Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-color); /* Warna hijau tua */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bs-primary-rgb);
+}
+
+/* Untuk Firefox */
+/* Terkadang firefox akan menampilkan scrollbar, bahkan jika tidak diperlukan. */
+/* Oleh karena itu, diperlukan aturan berikut untuk menangani masalah ini */
+html {
+  scrollbar-color: #006400 #f1f1f1;
+  scrollbar-width: thin;
+}
+
+/* Untuk Microsoft Edge dan Internet Explorer */
+/* Edge dan IE menggunakan vendor prefix -ms- */
+/* Edge mengharuskan penggunaan warna di atas scrollbar, bukan pada thumb */
+/* Kode di bawah hanya menangani warna background di atas scrollbar untuk Edge */
+@supports (-ms-ime-align: auto) {
+  html {
+    scrollbar-face-color: #f1f1f1;
+    scrollbar-track-color: #f1f1f1;
+  }
+  body {
+    scrollbar-arrow-color: #006400;
+  }
+}
+
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ced4da;
+  background-image: url("bgreen.svg") ;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 1800px;
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 1000p;
+}
+
+/* Home */
+
+
+.home-title::before {
+  position: absolute;
+  left: -50px;
+  top: -30px;
+}
+
+.home-title::after {
+  position: absolute;
+  right: -50px;
+  bottom: -30px;
+}
+/* About */
+.about{
+  background-color: var(--bs-primary-rgb);
+  color: var(--background-color);
+  width: cover;
+  height: 680px;
+  padding-top: 90px;
+  font-size: 1.3rem;
+}
+
+
+.imn{
+  padding-top: 60px;
+}
+
+.contact{
+  background-color: #ced4da;
+}
+
+#foot{
+  background-color: #023f32;
+  width: cover;
+  height: 150px;
+}.headdash {
+  display: flex;
+}
+
+#iconside{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+#sidebar {
+  height: 100%;
+  width: 60px; /* Lebar awal sidebar */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--bs-primary-rgb);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+#sidebar a {
+  padding: 10px 5px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  transition: 0.3s;
+  white-space: nowrap; /* Teks tidak pindah ke baris baru */
+  overflow: hidden; /* Teks yang berlebihan disembunyikan */
+  text-overflow: ellipsis; /* Teks yang berlebihan ditampilkan sebagai ellipsis */
+}
+
+#sidebar a:hover {
+  color: #f1f1f1;
+}
+
+#sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#sidebar-header {
+  
+  text-align: center;
+  color: white;
+}
+
+#sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 16px;
+  margin-left: 50px; /* Sesuaikan jarak dari sisi kiri sesuai lebar sidebar Anda */
+}
+li{
+    list-style: none;
+  }
+  .navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
+    padding: 0 5%;
+    z-index: 1000;
+    background-color:var(--bs-primary-rgb);
+  }
+  .nav-menu{
+    display: flex;
+    align-items: center;
+  }
+  .nav-branding{
+    font-size: 2rem;
+  }
+
+  .nav-link{
+    color:beige
+  }
+
+  #p{
+    color:beige
+  }
+  /* transition for links */
+  .nav-link{
+    transition: 0.5s ease;
+  }
+  .nav-link:hover{
+    color: rgb(7, 171, 136);
+  }
+  .hamburger{
+    display: none;
+    cursor: pointer;
+  }
+  .bar{
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background: white;
+  }
+  .nav-item{
+    padding: 0 1.5rem;
+  }
+
+
+
+  /* Reponsive Header */
+  @media(max-width: 760px){
+    .home{
+      background-image: url("bgreen.svg") ;
+      background-size: 1400px;
+      justify-content: top;
+    }
+    .about{
+      background-color: var(--bs-primary-rgb);
+      color: var(--background-color);
+      width: cover;
+      height: 980px;
+      padding-top: 90px;
+      font-size: 1rem;
+    }
+
+    
+  .imn{
+    padding-top: 1px;
+    padding-bottom: 20px;
+  }
+
+    .bar{
+      display: block;
+    }
+    .hamburger{
+      display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+      opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+      transform: rotate(45deg) translateY(11.5px); 
+    }  
+    .hamburger.active .bar:nth-child(3){
+      transform: rotate(-45deg) translateY(-11.5px); 
+    }
+    .nav-menu{
+      position: fixed;
+      right: -100%;
+      top: 70px;
+      flex-direction: column;
+      width: 100%;
+      height: 70%;
+      text-align: center;
+      background-color: rgba(129, 128, 128, 0.397);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      transition: 0.3s;
+    }
+    .nav-item{
+      padding: 1.5rem 0;
+    }
+    
+    .nav-menu.active{
+      right: 0;
+    }
+    
+  }
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+.container-fluid-costum{
+  max-width: 1600px;
+}
+
+/*btn utama*/
+.btn-primary {
+  border-radius: 20px;
+  --bs-btn-color: white;
+  --bs-btn-bg: var(--bs-primary-rgb);
+  --bs-btn-border-color: var(--bs-primary-rgb);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #036d56;
+  --bs-btn-hover-border-color: #036d56;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--bs-primary-rgb);
+  --bs-btn-active-border-color: var(--bs-primary-rgb);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--bs-primary-rgb);
+  --bs-btn-disabled-border-color: var(--bs-primary-rgb);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--bs-primary-rgb);
+  --bs-btn-border-color: var(--bs-primary-rgb);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #036d56;
+  --bs-btn-hover-border-color: #036d56;
+  --bs-btn-focus-shadow-rgb: 13, 110, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--bs-primary-rgb);
+  --bs-btn-active-border-color: var(--bs-primary-rgb);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--bs-primary-rgb);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--bs-primary-rgb);
+  --bs-gradient: none;
+}
+
+.pagination {
+  --bs-pagination-color: var(--bs-primary-rgb);
+  --bs-pagination-active-bg: var(--bs-primary-rgb);
+  --bs-pagination-active-border-color: var(--bs-primary-rgb);
+}
+
+/* Tambahkan beberapa gaya untuk elemen pencarian */
+.search-form {
+  position: relative;
+}
+
+.input-group {
+  width: 100%; /* Agar ikon dan input mencakup lebar penuh */
+  position: relative; /* Untuk mengatur posisi relatif pada wadah input-group */
+}
+
+.input-group-text {
+  background-color: transparent; /* Hilangkan latar belakang ikon */
+  border: none; /* Hilangkan border pada ikon */
+  color: #495057; /* Warna teks ikon */
+  position: absolute; /* Mengatur posisi absolut untuk ikon */
+  right: 0; /* Menempatkan ikon di sebelah kanan */
+  cursor: pointer; /* Menambahkan cursor pointer saat diarahkan ke ikon */
+}
+
+.search-input {
+  border-radius: 25px 0 0 25px; /* Atur sudut border radius agar ujung kiri membulat */
+  padding-right: 40px; /* Menambahkan padding di sebelah kanan untuk menampung ikon */
+  border: 1px solid #ced4da; /* Warna border agar lebih terlihat */
+  background-color: rgba(255, 255, 255, 0.8); /* Transparansi pada background */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  background-color: #ffffff; /* Warna background saat input di-focus */
+}
+
+/* Menambahkan lengkungan pada ujung kanan */
+.input-group-append {
+  border-radius: 0 25px 25px 0; /* Atur sudut border radius agar ujung kanan membulat */
+  margin-left: -1px; /* Mengatasi masalah jarak antara ikon dan input */
+}
+
+
+
+
+
+.btn-new-note {
+  position: fixed;
+  bottom: 30px; /* Sesuaikan dengan jarak dari bawah yang diinginkan */
+  right: 30px; /* Sesuaikan dengan jarak dari kanan yang diinginkan */
+  z-index: 1000; /* Nilai z-index yang tinggi untuk menempatkannya di depan */
+  background-color: var(--bs-primary-rgb); /* Warna latar belakang tombol */
+  border: none; /* Hilangkan border */
+  border-radius: 50%; /* Agar tombol terlihat seperti lingkaran */
+  width: 60px; /* Sesuaikan dengan lebar yang diinginkan */
+  height: 60px; /* Sesuaikan dengan tinggi yang diinginkan */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease-in-out;
+  color: white; /* Warna teks */
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px; /* Sesuaikan dengan ukuran font yang diinginkan */
+}
+
+.btn-new-note:hover {
+  background-color: #036d56; /* Ubah warna latar belakang saat tombol dihover */
+}
+
+
+
+
+/* Tambahkan animasi untuk kartu (note-card) */
+.note-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.note-card:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+#add{
+  position: fixed;
+ 
+  
+}
+
+#date{
+  position: absolute;
+  padding-right: 10px;
+  top: 85%;
+  opacity: 60%;
+}
+
+  .alphabet-dropdown {
+    max-height: 200px; /* Sesuaikan tinggi maksimum sesuai kebutuhan Anda */
+    overflow-y: auto;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .alphabet-dropdown a {
+    color: #343535;
+  }
+
+  .alphabet-dropdown a:hover,
+  .alphabet-dropdown a:focus {
+    background-color: #f8f9fa;
+  }

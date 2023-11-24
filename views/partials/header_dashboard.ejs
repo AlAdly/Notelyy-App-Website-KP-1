@@ -1,0 +1,47 @@
+<div class="headdash">
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <a href="javascript:void(0)" class="closebtn fs-2" onclick="toggleNav()">&#9776;</a>
+    <div id="sidebar-header">
+      <a href="/dashboard">
+        <i class="fas fa-home fs-3" id="iconside" style="margin-top: 30px;margin-right: 13px;"></i>
+        <span class="sidebar-text">Dashboard</span>
+      </a>
+      <a href="../dashboard/add">
+        <i class="fas fa-edit fs-3" id="iconside" style="margin-top: 30px;margin-left: 16px;margin-right: 13px;"></i>
+        <span class="sidebar-text">Add Note</span>
+      </a>
+    </div>
+
+    <!-- Tambahkan item menu sesuai kebutuhan Anda -->
+    <div id="sidebar-footer">
+      <a href="/logout">
+        <i class="fas fa-sign-out-alt fs-3" id="iconside" style="margin-top: 30px;margin-left: 16px;margin-right: 13px;"></i>
+        <span class="sidebar-text">Logout</span>
+      </a>
+    </div>
+  </div>
+  <!-- /Sidebar -->
+
+  <!-- Konten Utama -->
+  <!-- /Konten Utama -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  function toggleNav() {
+    var sidebar = document.getElementById("sidebar");
+    var main = document.getElementById("main");
+    var width = sidebar.style.width;
+
+    if (width === "60px") {
+      sidebar.style.width = "200px";
+      main.style.marginLeft = "200px";
+    } else {
+      sidebar.style.width = "60px";
+      main.style.marginLeft = "60px";
+    }
+  }
+</script>
